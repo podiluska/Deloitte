@@ -1,0 +1,24 @@
+﻿@model Deloitte.Todo.Models.TaskViewModel
+<tr>
+    <td>
+        @Html.DisplayFor(m => m.Description)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.LastUpdated)
+    </td>
+    <td>
+        @Html.DisplayFor(m => m.IsComplete)
+    </td>
+    <td>
+        @if (Model.IsComplete)
+        {
+            @Html.ActionLink("Make as incomplete", "Reset", new { id = Model.TaskId })
+        }
+        else
+        {
+            @Html.ActionLink("Make as complete", "Complete", new { id = Model.TaskId })
+        }
+        |
+        @Html.ActionLink("Delete", "Delete", new { id = Model.TaskId },  new { onclick = "return confirm('Are you sure you wish to delete this task?');" })
+    </td>
+</tr>

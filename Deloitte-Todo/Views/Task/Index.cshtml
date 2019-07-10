@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Deloitte.Todo.Models.TaskViewModel>
+
+@{
+    ViewData["Title"] = "To Do";
+}
+
+<h2>To Do List</h2>
+
+<p>
+    <a asp-action="Add">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastUpdated)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsComplete)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @Html.DisplayFor(i => item)
+        }
+    </tbody>
+</table>
